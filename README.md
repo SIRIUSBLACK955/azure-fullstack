@@ -143,6 +143,9 @@ npm run build
 sudo rm -rf /usr/share/nginx/html/*
 sudo cp -r build/* /usr/share/nginx/html/
 
+# linux might be blocking nginx proxy
+sudo setsebool -P httpd_can_network_connect 1
+
 # reload nginx
 sudo systemctl reload nginx
 sudo systemctl enable nginx
